@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101114"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='27' fill='%23d8aa6a'%3E%E2%8F%A3%3C/text%3E%3C/svg%3E"><title>막차의 잔향 — 기록되지 않은 전투</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="noise"></div>
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">⏣</div><div><div class="brand-name">NOCTURNE <span>LINE</span></div><div class="brand-sub">도시 외곽 순환선 · 제 09 야간 운행</div></div></div>
+    <div class="route"><span class="live-dot"></span> 운행 중 <b>00:17</b><i>—</i> 종착역까지 <b>3 정거장</b></div>
+    <button class="icon-btn" id="soundBtn" aria-label="효과음 설정">♫</button>
+  </header>
+  <main>
+    <section class="mission-head"><div><div class="eyebrow">CASE FILE&nbsp; 09—B / INCIDENT REPORT</div><h1>유리창 너머의 <em>승객</em></h1><p>“문이 열릴 때마다, 누군가 한 명씩 사라지고 있었다.”</p></div><div class="phase" id="phase"><span class="phase-no">01</span><span>작전 단계<br><b>명령을 내리십시오</b></span></div></section>
+    <section class="battlefield" aria-label="전장">
+      <div class="scene-grid"></div><div class="station-sign">PLATFORM <strong>04</strong><small>막차 · 출발 대기</small></div>
+      <div class="weather">비 / 시야 불량 <span>▧ ▧ ▧</span></div>
+      <div class="rail rail-back"></div><div class="rail rail-front"></div>
+      <div class="enemy-wrap" id="enemyWrap">
+        <div class="enemy-label"><span class="tag danger">위험 개체</span><span class="enemy-name" id="enemyName">유리창의 승객</span><span class="enemy-sub" id="enemySub">“빈 좌석은 하나면 충분해.”</span></div>
+        <div class="enemy-figure" id="enemyFigure"><div class="halo"></div><div class="coat"></div><div class="neck"></div><div class="head"><i class="eye eye-a"></i><i class="eye eye-b"></i><div class="crack"></div></div><div class="arm arm-a"></div><div class="arm arm-b"></div><div class="legs"></div><div class="glass-shard s1"></div><div class="glass-shard s2"></div><div class="glass-shard s3"></div></div>
+        <div class="enemy-hud"><div class="hud-row"><span>체력</span><b id="enemyHpText">180 / 180</b></div><div class="bar hp"><i id="enemyHpBar"></i></div><div class="hud-row secondary"><span>흐트러짐 임계치</span><b id="staggerText">60</b></div><div class="bar stagger"><i id="staggerBar"></i></div><div class="status-list" id="enemyStatus"></div></div>
+        <div class="intent-card" id="intentCard"><div class="intent-title"><span>적의 의도</span><b>다음 턴 예고</b></div><div class="intent-main"><span class="intent-die">⚄</span><div><strong id="intentName">회수 열차</strong><small id="intentDesc">무작위 수감자에게 · 12–18</small></div></div></div>
+      </div>
+      <div class="combat-log" id="combatLog"><span class="log-mark">!</span><span>유리창 너머에서 무언가 두드린다.</span></div>
+    </section>
+    <section class="lower">
+      <div class="team-panel"><div class="panel-title"><span>운행 인원</span><span class="small-muted">3 / 3 ACTIVE</span></div><div id="teamList" class="team-list"></div><div class="sin-bar"><div class="sin-title">공명 자원 <span id="sinTotal">0</span><small> / 12</small></div><div class="sin-pips" id="sinPips"></div><div class="sin-caption">같은 색 기술을 이어 쓰면 <b>공명</b> 발생</div></div></div>
+      <div class="orders-panel"><div class="orders-top"><div><div class="panel-title">전투 명령 <span class="order-count" id="orderCount">0 / 3</span></div><div class="helper" id="helperText">수감자를 선택하고 기술을 지정하세요.</div></div><button class="resolve-btn" id="resolveBtn" disabled><span>명령 실행</span><b>▶</b></button></div><div class="skill-row" id="skillRow"></div><div class="target-row" id="targetRow"></div></div>
+    </section>
+    <footer><span>⏣&nbsp; NOCTURNE LINE / 내부 기록용</span><span>TURN <b id="turnNum">01</b> &nbsp;·&nbsp; <span id="footerState">AWAITING ORDERS</span></span></footer>
+  </main>
+</div>
+<div class="modal hidden" id="resultModal"><div class="modal-card"><div class="result-icon" id="resultIcon">✦</div><div class="eyebrow">CASE FILE 09—B / CLOSED</div><h2 id="resultTitle">운행이 종료되었습니다</h2><p id="resultText"></p><button id="restartBtn">다시 운행하기 <span>↻</span></button></div></div>
+<div class="toast" id="toast"></div>
+<script src="game.js"></script>
+</body></html>
